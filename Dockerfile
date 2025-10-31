@@ -21,11 +21,5 @@ ENV NAME=openwisp-monitoring \
     PYTHONBUFFERED=1 \
     INFLUXDB_HOST=influxdb \
     REDIS_HOST=redis
-# Copy entrypoint script into image
-COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-
-# Ensure it’s executable and has Unix line endings
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
-
-ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+CMD ["sh", "docker-entrypoint.sh"]
 EXPOSE 8000
